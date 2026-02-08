@@ -111,6 +111,7 @@ This single command will:
 |---|---|
 | `composer dev` | Start all services + Vite (fresh database each time) |
 | `composer dev:stop` | Stop all services |
+| `composer dev:reset` | Destroy all containers and volumes, then start fresh |
 | `composer dev:fresh` | Same as `dev` with `migrate:fresh --seed` |
 | `composer test` | Run lint + tests |
 | `composer lint` | Fix code style with Pint |

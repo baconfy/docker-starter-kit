@@ -16,7 +16,7 @@ export default function AuthSplitLayout({
                 <div className="absolute inset-0 bg-zinc-900" />
                 <Link
                     href={home()}
-                    className="relative z-20 flex items-center text-lg font-medium"
+                    className="relative z-20 flex clickable items-center text-lg font-medium"
                 >
                     <ContainerIcon className="mr-2 size-8 text-white" />
                     {name}
@@ -26,7 +26,7 @@ export default function AuthSplitLayout({
                 <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
                     <Link
                         href={home()}
-                        className="relative z-20 flex items-center justify-center lg:hidden"
+                        className="relative z-20 flex clickable items-center justify-center lg:hidden"
                     >
                         <ContainerIcon className="h-10 text-sidebar-primary sm:h-12" />
                     </Link>
