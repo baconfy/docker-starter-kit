@@ -85,8 +85,10 @@ This single command will:
 - Start all Docker containers (PostgreSQL, Redis, MinIO, Mailpit, etc.)
 - Wait for all services to be healthy
 - Create the MinIO storage bucket
-- Run migrations and seed the database
+- Run `migrate:fresh --seed` (reset and re-seed the database)
 - Start Vite dev server with HMR
+
+> **Note:** Every time you run `composer dev`, the database is completely reset via `migrate:fresh`. This means all data is dropped and recreated from your seeders. Make sure your seeders are well-configured to recreate any data you need for development.
 
 **5. Open the app:**
 
