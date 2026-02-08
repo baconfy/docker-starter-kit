@@ -1,30 +1,49 @@
 # Docker Starter Kit
 
-A production-ready **Laravel 12 + React 19 + Inertia v2** starter kit, fully Dockerized with [ServerSideUp PHP](https://serversideup.net/open-source/docker-php/) images.
+A production-ready **Laravel 12 + React 19 + Inertia v2** starter kit, fully Dockerized with [ServerSideUp PHP](https://serversideup.net/open-source/docker-php/) images. Everything you need to build modern, AI-powered web applications — batteries included.
 
-## Stack
+## What's Included
 
-| Service | Image / Tech | Port |
+### Backend
+
+- **[Laravel 12](https://laravel.com/)** — PHP framework
+- **[Laravel Fortify](https://laravel.com/docs/fortify)** — Headless authentication (login, register, password reset, email verification, two-factor auth)
+- **[Laravel Horizon](https://laravel.com/docs/horizon)** — Queue management with dashboard
+- **[Laravel Reverb](https://laravel.com/docs/reverb)** — Real-time WebSocket broadcasting
+- **[Laravel AI SDK](https://laravel.com/docs/ai-sdk)** — Unified API for OpenAI, Anthropic, Gemini, and 10+ AI providers (agents, tools, structured output, embeddings, images, audio)
+- **[Laravel MCP](https://laravel.com/docs/mcp)** — Model Context Protocol server for AI client integrations
+- **[Laravel Wayfinder](https://laravel.com/docs/wayfinder)** — Type-safe route generation for TypeScript
+- **[Pest 4](https://pestphp.com/)** — Testing framework
+- **[Laravel Pint](https://laravel.com/docs/pint)** — Code style fixer
+
+### Frontend
+
+- **[React 19](https://react.dev/)** with React Compiler
+- **[Inertia.js v2](https://inertiajs.com/)** — SPA without the complexity (deferred props, prefetching, polling, infinite scroll)
+- **[Tailwind CSS v4](https://tailwindcss.com/)** — Utility-first CSS
+- **[Vite 7](https://vite.dev/)** — Lightning-fast HMR
+- **[Lucide Icons](https://lucide.dev/)** — Icon library
+- **[Radix UI](https://www.radix-ui.com/)** — Accessible, unstyled UI primitives
+- **[Laravel Echo](https://laravel.com/docs/broadcasting#client-side-installation)** — Real-time event listening
+
+### Infrastructure (Docker)
+
+| Service | Image | Port |
 |---|---|---|
 | **App** (Nginx + PHP-FPM) | `serversideup/php:8.5-fpm-nginx` | `80` |
-| **Horizon** (Queue Manager) | `serversideup/php:8.5-fpm-nginx` | - |
-| **Scheduler** (Cron) | `serversideup/php:8.5-fpm-nginx` | - |
+| **Horizon** (Queue Worker) | `serversideup/php:8.5-fpm-nginx` | — |
+| **Scheduler** (Cron) | `serversideup/php:8.5-fpm-nginx` | — |
 | **Reverb** (WebSocket) | `serversideup/php:8.5-fpm-nginx` | `9001` |
 | **PostgreSQL 18** | `postgres:18-alpine` | `5432` |
 | **Redis** | `redis:alpine` | `6379` |
 | **MinIO** (S3 Storage) | `minio/minio` | `9000` / `8900` |
 | **Mailpit** (Email Testing) | `axllent/mailpit` | `8025` / `1025` |
 
-### Frontend & Backend
+### AI Providers (pre-configured)
 
-- **Laravel 12** with Fortify (headless auth)
-- **React 19** with Inertia v2
-- **Tailwind CSS v4**
-- **Vite 7** with HMR
-- **Laravel Horizon** for queue management & dashboard
-- **Laravel Reverb** for real-time WebSocket broadcasting
-- **Laravel Wayfinder** for type-safe route generation
-- **Pest 4** for testing
+All providers are ready to use — just add your API key:
+
+Anthropic, OpenAI, Gemini, Groq, DeepSeek, Mistral, Cohere, xAI, ElevenLabs, Jina, VoyageAI, OpenRouter, Ollama
 
 ## Prerequisites
 
@@ -119,7 +138,7 @@ The project uses a **two-file Docker Compose pattern**:
 ### Dockerfile (Multi-Stage)
 
 ```
-Stage 1: node:22-alpine        → Build frontend assets (Vite)
+Stage 1: node:22-alpine           → Build frontend assets (Vite)
 Stage 2: serversideup/php:8.5-cli → Install Composer dependencies
 Stage 3: serversideup/php:8.5-fpm-nginx → Production image
 ```
