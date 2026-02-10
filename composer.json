@@ -59,7 +59,7 @@
             "docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --remove-orphans --wait",
             "docker compose -f docker-compose.yml -f docker-compose.dev.yml --profile setup run --rm minio-create-bucket",
             "docker compose -f docker-compose.yml -f docker-compose.dev.yml exec app php artisan migrate:fresh --seed --no-interaction",
-            "npx concurrently -c \"#93c5fd,#c4b5fd\" \"docker compose -f docker-compose.yml -f docker-compose.dev.yml logs -f\" \"npm run dev\" --names=docker,vite --kill-others"
+            "npx concurrently -c \"#93c5fd,#c4b5fd\" \"docker compose -f docker-compose.yml -f docker-compose.dev.yml logs -f\" \"php artisan config:clear && npm run dev\" --names=docker,vite --kill-others"
         ],
         "dev:stop": [
             "docker compose -f docker-compose.yml -f docker-compose.dev.yml down --remove-orphans"
