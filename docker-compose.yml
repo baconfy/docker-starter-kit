@@ -39,6 +39,8 @@ services:
       target: production
     command: ["php", "/var/www/html/artisan", "horizon"]
     stop_signal: SIGTERM
+    environment:
+      AUTORUN_ENABLED: false
     depends_on:
       postgres:
         condition: service_healthy
@@ -62,6 +64,8 @@ services:
       target: production
     command: ["php", "/var/www/html/artisan", "schedule:work"]
     stop_signal: SIGTERM
+    environment:
+      AUTORUN_ENABLED: false
     depends_on:
       postgres:
         condition: service_healthy
@@ -87,6 +91,8 @@ services:
     ports:
       - "${FORWARD_REVERB_PORT:-9001}:9001"
     stop_signal: SIGTERM
+    environment:
+      AUTORUN_ENABLED: false
     depends_on:
       redis:
         condition: service_healthy
