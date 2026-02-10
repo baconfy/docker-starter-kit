@@ -23,7 +23,7 @@ A production-ready **Laravel 12 + React 19 + Inertia v2** starter kit, fully Doc
 - **[Tailwind CSS v4](https://tailwindcss.com/)** — Utility-first CSS
 - **[Vite 7](https://vite.dev/)** — Lightning-fast HMR
 - **[Lucide Icons](https://lucide.dev/)** — Icon library
-- **[Radix UI](https://www.radix-ui.com/)** — Accessible, unstyled UI primitives
+- **[Base UI](https://base-ui.com/)** — Accessible, unstyled UI primitives
 - **[Laravel Echo](https://laravel.com/docs/broadcasting#client-side-installation)** — Real-time event listening
 
 ### Infrastructure (Docker)
