@@ -6,24 +6,31 @@ services:
       AUTORUN_ENABLED: false
       PHP_OPCACHE_ENABLE: "0"
       PHP_DISPLAY_ERRORS: "On"
+      PHP_EXTENSIONS: "intl"
     volumes:
       - .:/var/www/html
 
   # ── Horizon: mount code for live changes ──────────────────────────
   horizon:
     image: serversideup/php:8.5-fpm-nginx
+    environment:
+      PHP_EXTENSIONS: "intl"
     volumes:
       - .:/var/www/html
 
   # ── Scheduler: mount code for live changes ────────────────────────
   scheduler:
     image: serversideup/php:8.5-fpm-nginx
+    environment:
+      PHP_EXTENSIONS: "intl"
     volumes:
       - .:/var/www/html
 
   # ── Reverb: mount code for live changes ───────────────────────────
   reverb:
     image: serversideup/php:8.5-fpm-nginx
+    environment:
+      PHP_EXTENSIONS: "intl"
     volumes:
       - .:/var/www/html
 
